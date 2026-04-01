@@ -119,7 +119,7 @@
 
         <!-- CTA Section -->
         <div class="flex flex-col items-center gap-4 mb-16">
-            <a href="https://wa.me/393245515264" class="w-full bg-clay text-white py-5 rounded shadow-xl hover:bg-[#9a7b5d] transition-all transform active:scale-95">
+            <a id="cta-whatsapp-link" href="https://wa.me/393245515264?text=Ciao!%20Vorrei%20iniziare%20la%20mia%20esperienza%20di%20shopping%20in%20Valle%20d'Itria." class="w-full bg-clay text-white py-5 rounded shadow-xl hover:bg-[#9a7b5d] transition-all transform active:scale-95">
                 <span id="cta-button" class="text-sm font-bold uppercase tracking-[0.2em]">Inizia la tua esperienza</span>
             </a>
         </div>
@@ -132,7 +132,7 @@
                 <i class="fa-solid fa-phone-volume text-lg text-clay group-active:scale-90 transition-transform"></i>
                 <span id="nav-call" class="text-[9px] font-bold uppercase tracking-tighter">Prenota Call</span>
             </a>
-            <a href="https://wa.me/393245515264" target="_blank" class="flex flex-col items-center gap-1 group">
+            <a id="footer-whatsapp-link" href="https://wa.me/393245515264?text=Ciao!%20Vorrei%20iniziare%20la%20mia%20esperienza%20di%20shopping%20in%20Valle%20d'Itria." target="_blank" class="flex flex-col items-center gap-1 group">
                 <i class="fa-brands fa-whatsapp text-xl text-clay group-active:scale-90 transition-transform"></i>
                 <span class="text-[9px] font-bold uppercase tracking-tighter">WhatsApp</span>
             </a>
@@ -162,7 +162,8 @@
                 ctaButton: "Inizia la tua esperienza",
                 navCall: "Prenota Call",
                 navStore: "Lo Store",
-                footerExp: "Un'Esperienza Esclusiva di"
+                footerExp: "Un'Esperienza Esclusiva di",
+                waMessage: "Ciao! Vorrei iniziare la mia esperienza di shopping in Valle d'Itria."
             },
             en: {
                 heroTitle: "WELCOME TO ITRIA VALLEY!",
@@ -176,7 +177,8 @@
                 ctaButton: "Start Your Experience",
                 navCall: "Book Call",
                 navStore: "The Store",
-                footerExp: "An Exclusive Experience by"
+                footerExp: "An Exclusive Experience by",
+                waMessage: "Hello! I would like to start my shopping experience in Itria Valley."
             },
             fr: {
                 heroTitle: "BIENVENUE DANS LA VALLÉE D'ITRIA !",
@@ -190,7 +192,8 @@
                 ctaButton: "Commencez votre expérience",
                 navCall: "Réserver Call",
                 navStore: "La Boutique",
-                footerExp: "Une Expérience Exclusive par"
+                footerExp: "Une Expérience Exclusive par",
+                waMessage: "Bonjour ! Je souhaite commencer mon expérience shopping dans la vallée d'Itria."
             },
             de: {
                 heroTitle: "WILLKOMMEN IM ITRIA-TAL!",
@@ -204,7 +207,8 @@
                 ctaButton: "Starten Sie Ihr Erlebnis",
                 navCall: "Termin buchen",
                 navStore: "Der Store",
-                footerExp: "Ein exklusives Erlebnis von"
+                footerExp: "Ein exklusives Erlebnis von",
+                waMessage: "Hallo! Ich möchte mein Shopping-Erlebnis im Itria-Tal beginnen."
             }
         };
 
@@ -222,6 +226,13 @@
             document.getElementById('nav-call').innerText = t.navCall;
             document.getElementById('nav-store').innerText = t.navStore;
             document.getElementById('footer-exp').innerText = t.footerExp;
+            
+            // Update WhatsApp Links with pre-filled message
+            const encodedMsg = encodeURIComponent(t.waMessage);
+            const waUrl = `https://wa.me/393245515264?text=${encodedMsg}`;
+            document.getElementById('cta-whatsapp-link').href = waUrl;
+            document.getElementById('footer-whatsapp-link').href = waUrl;
+
             document.documentElement.lang = lang;
         }
     </script>
